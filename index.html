@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>凌霜竹梦 - AI项目团队博客</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#165DFF',
+            secondary: '#36D399',
+            accent: '#F87272',
+            dark: '#1E293B',
+            light: '#F8FAFC'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Montserrat', 'system-ui', 'sans-serif']
+          },
+        },
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+      .bg-gradient-bamboo {
+        background: linear-gradient(135deg, #165DFF 0%, #36D399 100%);
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- 导航栏 -->
+  <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm px-4 py-3 md:px-6 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="h-10 w-10 rounded-lg overflow-hidden">
+            <img src="src/凌霜竹梦logo.png" alt="凌霜竹梦logo" class="w-full h-full object-cover">
+          </div>
+          <span class="text-xl font-bold text-primary">凌霜竹梦</span>
+        </div>
+      </div>
+      
+      <!-- 桌面导航 -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="font-medium hover:text-primary transition-colors">首页</a>
+        <a href="#about" class="font-medium hover:text-primary transition-colors">关于我们</a>
+        <a href="#project" class="font-medium hover:text-primary transition-colors">项目</a>
+        <a href="#rules" class="font-medium hover:text-primary transition-colors">团队规则</a>
+        <a href="#blog" class="font-medium hover:text-primary transition-colors">项目日志</a>
+        <a href="#contact" class="block py-2 font-medium hover:text-primary transition-colors">联系我们</a>
+      </div>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="md:hidden text-gray-800 focus:outline-none">
+        <i class="fa fa-bars text-xl"></i>
+      </button>
+    </nav>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+      <div class="px-4 py-3 space-y-3">
+        <a href="#home" class="block py-2 font-medium hover:text-primary transition-colors">首页</a>
+        <a href="#about" class="block py-2 font-medium hover:text-primary transition-colors">关于我们</a>
+        <a href="#project" class="block py-2 font-medium hover:text-primary transition-colors">项目</a>
+        <a href="#rules" class="block py-2 font-medium hover:text-primary transition-colors">团队规则</a>
+        <a href="#blog" class="block py-2 font-medium hover:text-primary transition-colors">项目日志</a>
+        <a href="#contact" class="block py-2 font-medium hover:text-primary transition-colors">联系我们</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 英雄区域 -->
+    <section id="home" class="pt-24 md:pt-32 pb-16 md:pb-24 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-dark">
+              凌霜竹梦<br>
+              <span class="text-primary">AI项目团队</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-600 max-w-xl">
+              以竹之坚韧挺过技术寒冬，凭竹之团结织就智能网络。我们怀揣让AI如竹般扎根生活的梦想。
+            </p>
+            <div class="mt-8 flex space-x-4">
+              <a href="#project" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                查看项目
+              </a>
+              <a href="#about" class="px-6 py-3 bg-white hover:bg-gray-50 text-primary border border-primary rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                了解我们
+              </a>
+            </div>
+          </div>
+          <div class="md:w-1/2 flex justify-center">
+            <div class="relative">
+              <div class="absolute -inset-1 bg-gradient-bamboo rounded-full blur opacity-50 animate-float"></div>
+              <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                <img src="src/凌霜竹梦海报1.png" alt="AI团队协作" class="w-full h-auto">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">关于我们</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="max-w-3xl mx-auto text-gray-600">
+                        凌霜竹梦团队由一群热爱AI技术的伙伴组成，我们怀揣着让AI如竹般扎根生活的梦想，在算法迭代中坚守初心。
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- 团队愿景 -->
+                    <div class="bg-neutral p-8 rounded-xl shadow-sm hover-scale">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-eye text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">团队愿景</h3>
+                        <p class="text-gray-600">
+                            凌霜竹梦，以竹之坚韧挺过技术寒冬，凭竹之团结织就智能网络。我们怀揣让AI如竹般扎根生活的梦想，在算法迭代中坚守初心，于数据洪流里锚定方向。
+                        </p>
+                    </div>
+                    
+                    <!-- 团队口号 -->
+                    <div class="bg-neutral p-8 rounded-xl shadow-sm hover-scale">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-bullhorn text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">团队口号</h3>
+                        <p class="text-gray-600">
+                            凌霜而立，竹筑智能；梦启万象，智创无界。
+                        </p>
+                    </div>
+                    
+                    <!-- 团队目标 -->
+                    <div class="bg-neutral p-8 rounded-xl shadow-sm hover-scale">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-bullseye text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">团队目标</h3>
+                        <p class="text-gray-600">
+                            6天内完成 “1个基础AI项目落地+每日知识点同步消化”，高效利用时间，避免内耗。
+                        </p>
+                    </div>
+                </div>
+        
+        <div class="mt-16">
+          <h3 class="text-2xl font-bold text-primary mb-8 text-center">团队成员</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <!-- 团队成员卡片 -->
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center transform hover:-translate-y-2">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <img src="src/person/ljb.jpeg" alt="李江波" class="w-full h-full object-cover">
+              </div>
+              <h4 class="font-bold text-lg text-dark">李江波</h4>
+              <p class="text-primary font-medium">组长</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center transform hover:-translate-y-2">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <img src="src/person/qf.jpeg" alt="乔飞" class="w-full h-full object-cover">
+              </div>
+              <h4 class="font-bold text-lg text-dark">乔飞</h4>
+              <p class="text-primary font-medium">技术支持</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center transform hover:-translate-y-2">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <img src="src/person/wyh.jpeg" alt="王芋欢" class="w-full h-full object-cover">
+              </div>
+              <h4 class="font-bold text-lg text-dark">王芋欢</h4>
+              <p class="text-primary font-medium">成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center transform hover:-translate-y-2">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <img src="src/person/yjj.jpeg" alt="阳俊杰" class="w-full h-full object-cover">
+              </div>
+              <h4 class="font-bold text-lg text-dark">阳俊杰</h4>
+              <p class="text-primary font-medium">成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-center transform hover:-translate-y-2">
+              <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 border-4 border-primary/20">
+                <img src="src/person/zxw.jpeg" alt="张鑫伟" class="w-full h-full object-cover">
+              </div>
+              <h4 class="font-bold text-lg text-dark">张鑫伟</h4>
+              <p class="text-primary font-medium">成员</p>
+              <div class="mt-4 flex justify-center space-x-3">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-github"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                  <i class="fa fa-linkedin"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目介绍 -->
+    <section id="project" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">我们的项目</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            6天内完成 "1个基础AI项目落地+每日知识点同步消化"，高效利用时间，避免内耗。
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative h-60">
+              <img src="https://picsum.photos/id/160/800/600" alt="AI项目展示" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <div class="p-6">
+                  <span class="px-3 py-1 bg-primary text-white text-sm rounded-full">进行中</span>
+                  <h3 class="text-xl font-bold text-white mt-2">智能数据分析平台</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600">
+                我们正在开发的智能数据分析平台将利用AI技术自动分析和可视化复杂数据集，帮助用户快速提取有价值的信息和见解。
+              </p>
+              <div class="mt-4 flex items-center text-sm text-gray-500">
+                <span class="flex items-center mr-4">
+                  <i class="fa fa-calendar-o mr-1"></i> 2025-07-05
+                </span>
+                <span class="flex items-center">
+                  <i class="fa fa-users mr-1"></i> 5人团队
+                </span>
+              </div>
+              <div class="mt-6">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="text-sm font-medium text-gray-700">项目进度</span>
+                  <span class="text-sm font-medium text-primary">65%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative h-60">
+              <img src="https://picsum.photos/id/239/800/600" alt="AI项目展示" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                <div class="p-6">
+                  <span class="px-3 py-1 bg-secondary text-white text-sm rounded-full">计划中</span>
+                  <h3 class="text-xl font-bold text-white mt-2">智能助手应用</h3>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <p class="text-gray-600">
+                我们计划开发的智能助手应用将集成多种AI功能，为用户提供个性化的服务和建议，帮助他们更高效地完成日常任务。
+              </p>
+              <div class="mt-4 flex items-center text-sm text-gray-500">
+                <span class="flex items-center mr-4">
+                  <i class="fa fa-calendar-o mr-1"></i> 2025-07-12
+                </span>
+                <span class="flex items-center">
+                  <i class="fa fa-users mr-1"></i> 5人团队
+                </span>
+              </div>
+              <div class="mt-6">
+                <div class="flex justify-between items-center mb-2">
+                  <span class="text-sm font-medium text-gray-700">项目进度</span>
+                  <span class="text-sm font-medium text-primary">10%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 10%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 团队规则 -->
+     <section id="rules" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">团队规则</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="max-w-3xl mx-auto text-gray-600">
+                        为确保项目顺利进行，我们制定了明确的团队规则与分工。
+                    </p>
+                </div>
+                
+                <div class="bg-neutral rounded-2xl shadow-md overflow-hidden">
+                    <!-- 规则标签页 -->
+                    <div class="flex flex-wrap border-b border-gray-200">
+                        <button class="rules-tab px-6 py-4 text-primary border-b-2 border-primary font-medium" data-tab="core">
+                            核心目标
+                        </button>
+                        <button class="rules-tab px-6 py-4 text-gray-500 hover:text-primary font-medium" data-tab="division">
+                            分工与节奏
+                        </button>
+                        <button class="rules-tab px-6 py-4 text-gray-500 hover:text-primary font-medium" data-tab="communication">
+                            沟通协作
+                        </button>
+                    </div>
+                    
+                    <!-- 规则内容 -->
+                    <div class="p-8">
+                        <!-- 核心目标 -->
+                        <div id="core" class="rules-content block">
+                            <h3 class="text-xl font-bold mb-4">核心目标</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-check-circle text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">6天内完成 “1个基础AI项目落地+每日知识点同步消化”，高效利用时间，避免内耗。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-check-circle text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">确保项目质量，达到可演示、可交互的程度，为后续开发打下基础。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-check-circle text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">团队成员共同成长，每日同步学习进度，确保知识点无盲区。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- 分工与节奏 -->
+                        <div id="division" class="rules-content hidden">
+                            <h3 class="text-xl font-bold mb-4">分工与每日节奏</h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 flex items-center">
+                                        <i class="fa fa-user-circle text-primary mr-2"></i> 组长
+                                    </h4>
+                                    <ul class="space-y-2 ml-6">
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">每天早8:30前拆解当日任务（按课程进度，如“Day1：数据收集+工具熟悉”“Day3：模型搭建”），明确每人3小时内可完成的具体事项。</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">每晚7:00组织30分钟复盘：快速过进度（未完成项即时协调）、汇总当日技术卡点（统一记录待请教讲师）。</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 flex items-center">
+                                        <i class="fa fa-cogs text-primary mr-2"></i> 技术顾问
+                                    </h4>
+                                    <ul class="space-y-2 ml-6">
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">主攻实操环节：提前1小时预习当日核心工具，成员遇到问题时10分钟内响应，复杂问题标注后集中问讲师。</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">负责项目核心代码/模型的搭建框架，确保方向不跑偏。</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2 flex items-center">
+                                        <i class="fa fa-users text-primary mr-2"></i> 3名成员
+                                    </h4>
+                                    <ul class="space-y-2 ml-6">
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">按“拆分任务”同步推进（如1人负责数据清洗、1人整理案例素材、1人记录操作步骤），不单独攻坚，卡点立刻喊停并求助。</p>
+                                            </div>
+                                        </li>
+                                        <li class="flex items-start">
+                                            <div class="flex-shrink-0 mt-1">
+                                                <i class="fa fa-circle text-xs text-primary"></i>
+                                            </div>
+                                            <div class="ml-3">
+                                                <p class="text-gray-700">每人每日整理1页“极简笔记”（只记核心操作和易错点），晚上复盘时共享。</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 沟通协作 -->
+                        <div id="communication" class="rules-content hidden">
+                            <h3 class="text-xl font-bold mb-4">沟通协作</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-comments text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">保持开放沟通，成员间遇到问题及时反馈，避免问题积累。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-calendar-check-o text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">严格遵守每日早会和复盘会议时间，确保信息同步。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-file-text-o text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">使用共享文档记录项目进展和技术要点，确保团队知识共享。</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0 mt-1">
+                                        <i class="fa fa-flag text-primary"></i>
+                                    </div>
+                                    <div class="ml-3">
+                                        <p class="text-gray-700">遇到技术难点或资源不足时，及时向讲师或其他团队求助。</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- 项目日志 -->
+    <section id="blog" class="py-16 md:py-24 bg-gray-50">
+      <div class="container mx-auto px-4 md:px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark">项目日志</h2>
+          <div class="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+          <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+            记录我们团队在AI项目开发过程中的点点滴滴，包括每日进度、遇到的挑战以及取得的成果。
+          </p>
+        </div>
+        
+        <div class="space-y-8">
+          <!-- 日志条目 -->
+          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/3">
+                <img src="https://picsum.photos/id/3/600/400" alt="项目启动会议" class="w-full h-full object-cover">
+              </div>
+              <div class="md:w-2/3 p-6 md:p-8">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <span class="flex items-center mr-4">
+                    <i class="fa fa-calendar-o mr-1"></i> 2025-07-05
+                  </span>
+                  <span class="flex items-center">
+                    <i class="fa fa-user mr-1"></i> 李江波
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-dark mb-3">项目启动会议</h3>
+                <p class="text-gray-600 mb-4">
+                  今天我们团队召开了项目启动会议，明确了项目目标和分工。我们选择了"智能数据分析平台"作为本次6天冲刺的项目主题。乔飞作为技术顾问，已经开始研究相关技术栈和工具。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">项目启动</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">团队会议</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">任务分配</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                  阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/3">
+                <img src="https://picsum.photos/id/180/600/400" alt="数据收集与工具熟悉" class="w-full h-full object-cover">
+              </div>
+              <div class="md:w-2/3 p-6 md:p-8">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <span class="flex items-center mr-4">
+                    <i class="fa fa-calendar-o mr-1"></i> 2025-07-06
+                  </span>
+                  <span class="flex items-center">
+                    <i class="fa fa-user mr-1"></i> 阳俊杰
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-dark mb-3">Day 1: 数据收集与工具熟悉</h3>
+                <p class="text-gray-600 mb-4">
+                  今天是项目的第一天，我们专注于数据收集和工具熟悉。王芋欢和张鑫伟负责收集相关数据集，我则整理了一些案例素材。乔飞提前预习了TensorFlow和PyTorch，为后续的模型搭建做准备。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">数据收集</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">工具学习</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Day 1</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                  阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+            <div class="flex flex-col md:flex-row">
+              <div class="md:w-1/3">
+                <img src="https://picsum.photos/id/119/600/400" alt="数据清洗与预处理" class="w-full h-full object-cover">
+              </div>
+              <div class="md:w-2/3 p-6 md:p-8">
+                <div class="flex items-center text-sm text-gray-500 mb-3">
+                  <span class="flex items-center mr-4">
+                    <i class="fa fa-calendar-o mr-1"></i> 2025-07-07
+                  </span>
+                  <span class="flex items-center">
+                    <i class="fa fa-user mr-1"></i> 王芋欢
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-dark mb-3">Day 2: 数据清洗与预处理</h3>
+                <p class="text-gray-600 mb-4">
+                  第二天，我们开始进行数据清洗和预处理工作。我和张鑫伟遇到了一些数据格式不一致的问题，在乔飞的帮助下很快得到了解决。李江波整理了详细的操作步骤，形成了一份极简笔记。
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">数据清洗</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">数据预处理</span>
+                  <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full">Day 2</span>
+                </div>
+                <a href="#" class="inline-flex items-center text-primary font-medium hover:underline">
+                  阅读更多 <i class="fa fa-arrow-right ml-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-12 text-center">
+          <a href="#" class="px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 inline-flex items-center">
+            查看更多日志 <i class="fa fa-angle-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <!-- 联系我们 -->
+        <section id="contact" class="py-16 bg-neutral">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">联系我们</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="max-w-3xl mx-auto text-gray-600">
+                        如果你对我们的项目感兴趣，或者有任何问题，欢迎随时联系我们。
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <form class="bg-white p-8 rounded-xl shadow-md">
+                            <h3 class="text-xl font-bold mb-6">发送消息</h3>
+                            
+                            <div class="mb-6">
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">姓名</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的姓名">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">邮箱</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的邮箱">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">主题</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入消息主题">
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">消息内容</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors" placeholder="请输入您的消息内容"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-secondary text-white font-semibold py-3 px-6 rounded-lg transition-all hover:shadow-lg">
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-white p-8 rounded-xl shadow-md mb-8">
+                            <h3 class="text-xl font-bold mb-6">联系方式</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="fa fa-envelope text-primary"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-medium text-gray-900">邮箱</h4>
+                                        <p class="text-gray-600">lingshuangzhumeng@example.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="fa fa-weixin text-primary"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-medium text-gray-900">微信公众号</h4>
+                                        <p class="text-gray-600">凌霜竹梦AI</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                                        <i class="fa fa-github text-primary"></i>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-medium text-gray-900">GitHub</h4>
+                                        <p class="text-gray-600">https://github.com/lingshuangzhumeng</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-8 rounded-xl shadow-md">
+                            <h3 class="text-xl font-bold mb-6">项目进度</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">整体进度</span>
+                                        <span class="text-sm font-medium text-primary">33%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-primary h-2.5 rounded-full" style="width: 33%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">数据收集</span>
+                                        <span class="text-sm font-medium text-green-500">100%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">工具熟悉</span>
+                                        <span class="text-sm font-medium text-green-500">100%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">模型搭建</span>
+                                        <span class="text-sm font-medium text-yellow-500">0%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">模型训练</span>
+                                        <span class="text-sm font-medium text-yellow-500">0%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-sm font-medium text-gray-700">应用开发</span>
+                                        <span class="text-sm font-medium text-yellow-500">0%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                        <div class="bg-yellow-500 h-2.5 rounded-full" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white py-12">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center space-x-2 mb-4">
+            <div class="h-10 w-10 rounded-lg overflow-hidden">
+            <img src="src/凌霜竹梦logo.png" alt="凌霜竹梦logo" class="w-full h-full object-cover">
+          </div>
+            <span class="text-xl font-bold">凌霜竹梦</span>
+          </div>
+          <p class="text-gray-400 mb-4">
+            以竹之坚韧挺过技术寒冬，凭竹之团结织就智能网络。
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-github"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">快速链接</h4>
+          <ul class="space-y-2">
+            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">关于我们</a></li>
+            <li><a href="#project" class="text-gray-400 hover:text-white transition-colors">项目</a></li>
+            <li><a href="#rules" class="text-gray-400 hover:text-white transition-colors">团队规则</a></li>
+            <li><a href="#blog" class="text-gray-400 hover:text-white transition-colors">项目日志</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">联系方式</h4>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fa fa-envelope-o mr-2 text-gray-400"></i>
+              <a href="mailto:lingshuangzhumeng@example.com" class="text-gray-400 hover:text-white transition-colors">lingshuangzhumeng@example.com</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-github mr-2 text-gray-400"></i>
+              <a href="https://github.com/lingshuangzhumeng" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-weixin mr-2 text-gray-400"></i>
+              <span class="text-gray-400">凌霜竹梦AI</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-bold mb-4">订阅更新</h4>
+          <p class="text-gray-400 mb-4">
+            订阅我们的通讯，获取项目最新动态。
+          </p>
+          <form class="flex">
+            <input type="email" placeholder="您的邮箱地址" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+            <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-r-lg transition-colors">
+              <i class="fa fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2025 凌霜竹梦AI团队. 保留所有权利.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary/90">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        navbar.classList.add('bg-white', 'shadow-md');
+        navbar.classList.remove('bg-white/90');
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+      } else {
+        navbar.classList.remove('bg-white', 'shadow-md');
+        navbar.classList.add('bg-white/90');
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+    
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+          
+          // 关闭移动菜单
+          if (!mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+          }
+        }
+      });
+    });
+    
+    // 回到顶部按钮
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // 团队规则标签页切换
+        const rulesTabs = document.querySelectorAll('.rules-tab');
+        const rulesContents = document.querySelectorAll('.rules-content');
+        
+        rulesTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // 移除所有标签的活跃状态
+                rulesTabs.forEach(t => {
+                    t.classList.remove('text-primary', 'border-b-2', 'border-primary');
+                    t.classList.add('text-gray-500');
+                });
+                
+                // 隐藏所有内容
+                rulesContents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // 添加当前标签的活跃状态
+                tab.classList.add('text-primary', 'border-b-2', 'border-primary');
+                tab.classList.remove('text-gray-500');
+                
+                // 显示当前内容
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+  </script>
+</body>
+</html>
+    
